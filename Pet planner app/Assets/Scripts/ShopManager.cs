@@ -14,7 +14,7 @@ public class ShopManager : MonoBehaviour
         {
             GameObject newShopItem = Instantiate(shopItemPrefab);
             newShopItem.GetComponent<Button>().interactable = !item.bought;
-            newShopItem.GetComponentInChildren<Text>().text = "$ " + item.price.ToString();
+            newShopItem.GetComponentInChildren<Text>().text = item.price.ToString();
             newShopItem.transform.SetParent(transform, false);
         }
     }
