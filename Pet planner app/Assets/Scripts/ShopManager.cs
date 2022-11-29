@@ -25,7 +25,9 @@ public class ShopManager : MonoBehaviour
     private void BuyItem(ItemInfo item)
     {
         Button button = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
-        if (UserManager.Instance.getGold >= item.price && button.GetComponent<Outline>().effectColor != Color.green && button.GetComponent<Outline>().effectColor != Color.blue)
+        if (UserManager.Instance.getGold >= item.price && 
+            button.GetComponent<Outline>().effectColor != 
+            Color.green && button.GetComponent<Outline>().effectColor != Color.blue)
         {
             UserManager.Instance.setGold(-item.price);
             button.GetComponent<Outline>().effectColor = Color.green;
