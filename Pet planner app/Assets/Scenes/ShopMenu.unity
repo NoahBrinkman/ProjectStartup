@@ -217,10 +217,12 @@ MonoBehaviour:
     price: 4
     bought: 0
     category: hats
+    visuals: {fileID: 21300000, guid: 6d7c6ba6f1d7c874aba87eb09ac01565, type: 3}
   - identifier: Cowboy Hat
     price: 8
     bought: 0
     category: hats
+    visuals: {fileID: 0}
   shopItemPrefab: {fileID: 8611703894735081435, guid: 7edd5d86f3e91a141bd179b6a86ce2b0, type: 3}
   shopItemButtons: []
 --- !u!1 &190793047
@@ -331,7 +333,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   happinessValue: 0
   hungerValue: 0
-  goldValue: 9999
+  goldValue: 0
+  hat: {fileID: 2126212206}
 --- !u!4 &371328661
 Transform:
   m_ObjectHideFlags: 0
@@ -885,7 +888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
