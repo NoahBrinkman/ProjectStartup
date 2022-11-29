@@ -8,14 +8,15 @@ public class ShopManager : MonoBehaviour
 {
     [SerializeField] private List<ItemInfo> shopItems = new List<ItemInfo>();
     [SerializeField] private GameObject shopItemPrefab = null;
-    private Button selectedButton;
+
+    private Button hatSelectedButton;
+    const string HATS = "hats";
 
     private void Start()
     {
         foreach (ItemInfo item in shopItems)
         {
             GameObject newShopItem = Instantiate(shopItemPrefab);
-            newShopItem.GetComponent<Button>().interactable = !item.bought;
             newShopItem.GetComponent<Button>().onClick.AddListener(delegate { BuyItem(item); });
             newShopItem.GetComponentInChildren<Text>().text = item.price.ToString();
             newShopItem.transform.SetParent(transform, false);
@@ -37,11 +38,11 @@ public class ShopManager : MonoBehaviour
 
     private void EquipItem(ItemInfo item)
     {
-        if (selectedButton != null)
-            selectedButton.GetComponent<Outline>().effectColor = Color.green;
+        if (hatSelectedButton != null && item.category == HATS)
+            hatSelectedButton.GetComponent<Outline>().effectColor = Color.green;
 
         Button button = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
-        selectedButton = button;
+        hatSelectedButton = button;
         UserManager.Instance.SetCustomization(item);
         button.GetComponent<Outline>().effectColor = Color.blue;
     }
