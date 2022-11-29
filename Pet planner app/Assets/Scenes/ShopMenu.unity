@@ -217,10 +217,12 @@ MonoBehaviour:
     price: 4
     bought: 0
     category: hats
+    visuals: {fileID: 21300000, guid: 6d7c6ba6f1d7c874aba87eb09ac01565, type: 3}
   - identifier: Cowboy Hat
     price: 8
     bought: 0
     category: hats
+    visuals: {fileID: 0}
   shopItemPrefab: {fileID: 8611703894735081435, guid: 7edd5d86f3e91a141bd179b6a86ce2b0, type: 3}
 --- !u!1 &190793047
 GameObject:
@@ -299,6 +301,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 190793047}
   m_CullTransparentMesh: 1
+--- !u!1 &371328659
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 371328661}
+  - component: {fileID: 371328660}
+  m_Layer: 0
+  m_Name: UserManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &371328660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371328659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 410b065a36e874a459924497dbb840b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  happinessValue: 0
+  hungerValue: 0
+  goldValue: 0
+  hat: {fileID: 2126212206}
+--- !u!4 &371328661
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371328659}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 497.15582, y: 1169.7695, z: -16.920849}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &466551187
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,7 +887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -1,3 +1,5 @@
+using UnityEngine;
+
 [System.Serializable]
 public struct ItemInfo
 {
@@ -5,4 +7,5 @@ public struct ItemInfo
     public int price;
     public bool bought;
     public string category;
+    public Sprite visuals;
 }
