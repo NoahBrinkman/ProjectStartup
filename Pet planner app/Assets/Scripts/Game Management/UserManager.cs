@@ -34,7 +34,7 @@ public class UserManager : MonoBehaviour
     {
 
         // temp for feed
-        if(Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Space))
         {
             Feed(0.1f);
         }
@@ -44,7 +44,8 @@ public class UserManager : MonoBehaviour
 
     private void Feed(float foodValue)
     {
-        hungerValue += foodValue;
+        if (hungerValue <= 1)
+            hungerValue += foodValue;
     }
 
     private void UpdateBarValues()
@@ -52,10 +53,10 @@ public class UserManager : MonoBehaviour
         hungerBar.fillAmount = hungerValue;
         happinessBar.fillAmount = happinessValue;
 
-        if(hungerValue >= 0.8f && happinessValue < 1)
+        if (hungerValue >= 0.8f && happinessValue < 1)
             happinessValue += Time.deltaTime / 100;
 
-        if(hungerValue > 0)
+        if (hungerValue > 0)
             hungerValue -= Time.deltaTime / 100;
 
         if (hungerValue <= 0.5f)
@@ -74,7 +75,7 @@ public class UserManager : MonoBehaviour
     {
         if (item.category == HATS)
         {
-            if(!hat.gameObject.activeSelf)
+            if (!hat.gameObject.activeSelf)
                 hat.gameObject.SetActive(true);
 
             hat.sprite = item.visuals;
