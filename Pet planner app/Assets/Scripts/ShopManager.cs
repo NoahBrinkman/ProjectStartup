@@ -28,7 +28,7 @@ public class ShopManager : MonoBehaviour
         Button button = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
         if (UserManager.Instance.getGold >= item.price)
         {
-            button.image.color = Color.green;
+            button.GetComponent<Outline>().effectColor = Color.green;
             button.onClick.AddListener(delegate { EquipItem(item); });
         }
     }
@@ -37,6 +37,6 @@ public class ShopManager : MonoBehaviour
     {
         Button button = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
         UserManager.Instance.SetCustomization(item);
-        button.image.color = Color.blue;
+        button.GetComponent<Outline>().effectColor = Color.blue;
     }
 }
