@@ -8,6 +8,7 @@ public class ShopManager : MonoBehaviour
 {
     [SerializeField] private List<ItemInfo> shopItems = new List<ItemInfo>();
     [SerializeField] private GameObject shopItemPrefab = null;
+    private Button selectedButton;
 
     private void Start()
     {
@@ -34,7 +35,10 @@ public class ShopManager : MonoBehaviour
 
     private void EquipItem(ItemInfo item)
     {
+        if (selectedButton != null)
+            selectedButton.GetComponent<Outline>().effectColor = Color.green;
         Button button = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
+        selectedButton = button;
         UserManager.Instance.SetCustomization(item);
         button.GetComponent<Outline>().effectColor = Color.blue;
     }
