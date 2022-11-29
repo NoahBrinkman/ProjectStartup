@@ -8,7 +8,6 @@ public class ShopManager : MonoBehaviour
 {
     [SerializeField] private List<ItemInfo> shopItems = new List<ItemInfo>();
     [SerializeField] private GameObject shopItemPrefab = null;
-    [SerializeField] private List<GameObject> shopItemButtons = new List<GameObject>();
 
     private void Start()
     {
@@ -19,15 +18,15 @@ public class ShopManager : MonoBehaviour
             newShopItem.GetComponent<Button>().onClick.AddListener(delegate { BuyItem(item); });
             newShopItem.GetComponentInChildren<Text>().text = item.price.ToString();
             newShopItem.transform.SetParent(transform, false);
-            shopItemButtons.Add(newShopItem);
         }
     }
 
     private void BuyItem(ItemInfo item)
     {
         Button button = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
-        if (UserManager.Instance.getGold >= item.price)
+        if (UserManager.Instance.getGold >= item.price && button.GetComponent<Outline>().effectColor != Color.green)
         {
+            UserManager.Instance.setGold(-item.price);
             button.GetComponent<Outline>().effectColor = Color.green;
             button.onClick.AddListener(delegate { EquipItem(item); });
         }
