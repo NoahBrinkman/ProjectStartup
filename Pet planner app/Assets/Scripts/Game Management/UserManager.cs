@@ -6,10 +6,12 @@ using UnityEngine.UI;
 [DisallowMultipleComponent]
 public class UserManager : MonoBehaviour
 {
-    [SerializeField] private int happinessValue;
-    [SerializeField] private int hungerValue;
+    [SerializeField] private float happinessValue;
+    [SerializeField] private float hungerValue;
     [SerializeField] private int goldValue;
 
+    [SerializeField] private Image hungerBar;
+    [SerializeField] private Image happinessBar;
     public Image hat = null;
     const string HATS = "hats";
     public static UserManager Instance { get; private set; }
@@ -28,6 +30,39 @@ public class UserManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+
+        // temp for feed
+        if(Input.GetKeyUp(KeyCode.Space))
+        {
+            Feed(0.1f);
+        }
+
+        UpdateBarValues();
+    }
+
+    private void Feed(float foodValue)
+    {
+        hungerValue += foodValue;
+    }
+
+    private void UpdateBarValues()
+    {
+        hungerBar.fillAmount = hungerValue;
+        happinessBar.fillAmount = happinessValue;
+
+        if(hungerValue >= 0.8f && happinessValue < 1)
+            happinessValue += Time.deltaTime / 100;
+
+        if(hungerValue > 0)
+            hungerValue -= Time.deltaTime / 100;
+
+        if (hungerValue <= 0.5f)
+            happinessValue -= Time.deltaTime / 100;
+
+    }
+
     public int getGold => goldValue;
 
     public void setGold(int amount)
@@ -38,6 +73,11 @@ public class UserManager : MonoBehaviour
     public void SetCustomization(ItemInfo item)
     {
         if (item.category == HATS)
+        {
+            if(!hat.gameObject.activeSelf)
+                hat.gameObject.SetActive(true);
+
             hat.sprite = item.visuals;
+        }
     }
 }
