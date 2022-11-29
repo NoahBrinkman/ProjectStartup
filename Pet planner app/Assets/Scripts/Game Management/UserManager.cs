@@ -10,6 +10,8 @@ public class UserManager : MonoBehaviour
     [SerializeField] private float hungerValue;
     [SerializeField] private int goldValue;
 
+    private float maxBarValue = 1;
+
     [SerializeField] private Image hungerBar;
     [SerializeField] private Image happinessBar;
     public Image hat = null;
