@@ -332,7 +332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   happinessValue: 0
   hungerValue: 0
-  goldValue: 3333
+  goldValue: 0
   hat: {fileID: 2126212206}
 --- !u!4 &371328661
 Transform:
