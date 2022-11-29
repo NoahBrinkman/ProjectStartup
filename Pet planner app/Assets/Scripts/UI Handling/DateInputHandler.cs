@@ -16,7 +16,7 @@ public class DateInputHandler : MonoBehaviour
     {
         inField = GetComponent<InputField>();
         inField.onValueChanged.AddListener(CheckFormat);
-        inField.onSubmit.AddListener(validateDate);
+       // inField.onSubmit.AddListener(validateDate);
     }
 
     private void validateDate(string input)
@@ -28,7 +28,7 @@ public class DateInputHandler : MonoBehaviour
             int day = int.Parse(input.Substring(0, 2));
             int month = int.Parse(input.Substring(2, 2));
             date = new DateTime(year, month, day);
-            Debug.Log(date);
+          //  Debug.Log(date);
         }
         
     }
@@ -46,6 +46,7 @@ public class DateInputHandler : MonoBehaviour
         }
 
         displayText.text = newInput;
+        validateDate(input);
     }
 
 }
