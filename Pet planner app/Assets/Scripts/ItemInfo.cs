@@ -5,7 +5,7 @@ public struct ItemInfo
 {
     public string identifier;
     public int price;
-    public bool bought;
-    public string category;
     public Sprite visuals;
+    public enum categories {hats, backgrounds, jackets, food};
+    public categories category;
 }

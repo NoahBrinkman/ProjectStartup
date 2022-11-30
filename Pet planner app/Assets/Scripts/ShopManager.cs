@@ -10,7 +10,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private GameObject shopItemPrefab = null;
 
     private Button hatSelectedButton;
-    const string HATS = "hats";
+    private Button jacketSelectedButton;
 
     private void Start()
     {
@@ -26,9 +26,8 @@ public class ShopManager : MonoBehaviour
     private void BuyItem(ItemInfo item)
     {
         Button button = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
-        if (UserManager.Instance.getGold >= item.price && 
-            button.GetComponent<Outline>().effectColor != 
-            Color.green && button.GetComponent<Outline>().effectColor != Color.blue)
+        if (UserManager.Instance.getGold >= item.price &&
+            button.GetComponent<Outline>().effectColor == Color.black)
         {
             UserManager.Instance.setGold(-item.price);
             button.GetComponent<Outline>().effectColor = Color.green;
@@ -38,11 +37,20 @@ public class ShopManager : MonoBehaviour
 
     private void EquipItem(ItemInfo item)
     {
-        if (hatSelectedButton != null && item.category == HATS)
+        Button button = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
+
+        if (hatSelectedButton != null && item.category == ItemInfo.categories.hats)
             hatSelectedButton.GetComponent<Outline>().effectColor = Color.green;
 
-        Button button = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
-        hatSelectedButton = button;
+        if (item.category == ItemInfo.categories.hats)
+            hatSelectedButton = button;
+
+        if (jacketSelectedButton != null && item.category == ItemInfo.categories.jackets)
+            jacketSelectedButton.GetComponent<Outline>().effectColor = Color.green;
+
+        if (item.category == ItemInfo.categories.jackets)
+            jacketSelectedButton = button;
+
         UserManager.Instance.SetCustomization(item);
         button.GetComponent<Outline>().effectColor = Color.blue;
     }
