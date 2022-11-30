@@ -72,7 +72,7 @@ public class UserManager : MonoBehaviour
     {
         goldValue += amount;
     }
-
+    
     public void SetCustomization(ItemInfo item)
     {
         if (item.category == ItemInfo.categories.hats)

@@ -223,7 +223,7 @@ MonoBehaviour:
     category: 0
   - identifier: jacket 1
     price: 10
-    visuals: {fileID: 21300000, guid: 1e36f0c025dc05849b622d8532892bd3, type: 3}
+    visuals: {fileID: 21300000, guid: 5bc555ae989c8e7418645220f7f437f0, type: 3}
     category: 2
   - identifier: Jacket Again
     price: 11
