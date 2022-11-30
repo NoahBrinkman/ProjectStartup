@@ -10,7 +10,6 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private GameObject shopItemPrefab = null;
 
     private Button hatSelectedButton;
-    const string HATS = "hats";
 
     private void Start()
     {
@@ -26,7 +25,7 @@ public class ShopManager : MonoBehaviour
     private void BuyItem(ItemInfo item)
     {
         Button button = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
-        if (UserManager.Instance.getGold >= item.price && 
+        if (UserManager.Instance.getGold >= item.price &&
             button.GetComponent<Outline>().effectColor == Color.black)
         {
             UserManager.Instance.setGold(-item.price);
@@ -37,11 +36,13 @@ public class ShopManager : MonoBehaviour
 
     private void EquipItem(ItemInfo item)
     {
-        if (hatSelectedButton != null && item.category == HATS)
+        if (hatSelectedButton != null && item.category == ItemInfo.categories.hats)
             hatSelectedButton.GetComponent<Outline>().effectColor = Color.green;
 
         Button button = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
-        hatSelectedButton = button;
+        if (item.category == ItemInfo.categories.hats)
+            hatSelectedButton = button;
+
         UserManager.Instance.SetCustomization(item);
         button.GetComponent<Outline>().effectColor = Color.blue;
     }

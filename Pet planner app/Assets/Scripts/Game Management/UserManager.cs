@@ -15,7 +15,6 @@ public class UserManager : MonoBehaviour
     [SerializeField] private Image hungerBar;
     [SerializeField] private Image happinessBar;
     public Image hat = null;
-    const string HATS = "hats";
     public static UserManager Instance { get; private set; }
 
     private void Awake()
@@ -75,7 +74,7 @@ public class UserManager : MonoBehaviour
 
     public void SetCustomization(ItemInfo item)
     {
-        if (item.category == HATS)
+        if (item.category == ItemInfo.categories.hats)
         {
             if (!hat.gameObject.activeSelf)
                 hat.gameObject.SetActive(true);
