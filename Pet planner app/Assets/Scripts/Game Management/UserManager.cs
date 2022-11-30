@@ -46,7 +46,7 @@ public class UserManager : MonoBehaviour
 
     private void Feed(float foodValue)
     {
-        if (hungerValue <= 1)
+        if (hungerValue <= maxBarValue)
             hungerValue += foodValue;
     }
 
@@ -55,7 +55,7 @@ public class UserManager : MonoBehaviour
         hungerBar.fillAmount = hungerValue;
         happinessBar.fillAmount = happinessValue;
 
-        if (hungerValue >= 0.8f && happinessValue < 1)
+        if (hungerValue >= 0.8f && happinessValue < maxBarValue)
             happinessValue += Time.deltaTime / 100;
 
         if (hungerValue > 0)
