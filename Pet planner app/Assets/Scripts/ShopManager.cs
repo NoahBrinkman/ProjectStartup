@@ -10,6 +10,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private GameObject shopItemPrefab = null;
 
     private Button hatSelectedButton;
+    private Button jacketSelectedButton;
 
     private void Start()
     {
@@ -36,12 +37,19 @@ public class ShopManager : MonoBehaviour
 
     private void EquipItem(ItemInfo item)
     {
+        Button button = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
+
         if (hatSelectedButton != null && item.category == ItemInfo.categories.hats)
             hatSelectedButton.GetComponent<Outline>().effectColor = Color.green;
 
-        Button button = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
         if (item.category == ItemInfo.categories.hats)
             hatSelectedButton = button;
+
+        if (jacketSelectedButton != null && item.category == ItemInfo.categories.jackets)
+            jacketSelectedButton.GetComponent<Outline>().effectColor = Color.green;
+
+        if (item.category == ItemInfo.categories.jackets)
+            jacketSelectedButton = button;
 
         UserManager.Instance.SetCustomization(item);
         button.GetComponent<Outline>().effectColor = Color.blue;

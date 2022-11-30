@@ -15,6 +15,7 @@ public class UserManager : MonoBehaviour
     [SerializeField] private Image hungerBar;
     [SerializeField] private Image happinessBar;
     public Image hat = null;
+    public Image jacket = null;
     public static UserManager Instance { get; private set; }
 
     private void Awake()
@@ -80,6 +81,14 @@ public class UserManager : MonoBehaviour
                 hat.gameObject.SetActive(true);
 
             hat.sprite = item.visuals;
+        }
+
+        if (item.category == ItemInfo.categories.jackets)
+        {
+            if (!jacket.gameObject.activeSelf)
+                jacket.gameObject.SetActive(true);
+
+            jacket.sprite = item.visuals;
         }
     }
 }
