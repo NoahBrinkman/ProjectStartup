@@ -11,6 +11,8 @@ public class Task
     public string importance;
     public Colour colour = Colour.None;
 
+    public bool isCompleted = false;
+    
     public Task(string _name, string _description, DateTime _date,string _importance, Colour _colour)
     {
         name = _name;
