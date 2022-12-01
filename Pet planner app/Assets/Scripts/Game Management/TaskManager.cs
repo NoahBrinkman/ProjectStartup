@@ -47,22 +47,8 @@ public class TaskManager : MonoBehaviour
     }
 
     public void SortTasks()
-    {/*
-        IEnumerable<Task> uncompleteTasks = tasks.Where(x => !x.isCompleted);
-        IEnumerable<Task> highImportance = uncompleteTasks.Where(x => x.importance == "High importance").OrderBy(y => y.dueDate);
-        IEnumerable<Task> medImportance = uncompleteTasks.Where(x => x.importance == "Medium importance").OrderBy(y => y.dueDate);
-        IEnumerable<Task> lowImportance = uncompleteTasks.Where(x => x.importance == "Low importance").OrderBy(y => y.dueDate);
-
-        highImportance.Concat(medImportance);
-        highImportance.Concat(lowImportance);
-
-        IEnumerable<Task> completeTasks = tasks.Where(x => x.isCompleted);
-        highImportance.Concat(completeTasks);
-        return highImportance.ToList();*/
-        
-        
+    {   
         tasks.Sort();
-        //uncompleteTasks = uncompleteTasks.OrderBy(x => x.dueDate).ToList();
     }
     
     public Task GetTask(int index)
