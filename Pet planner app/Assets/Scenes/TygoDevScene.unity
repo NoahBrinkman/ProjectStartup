@@ -1372,7 +1372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   happinessValue: 1
   hungerValue: 1
-  goldValue: 0
+  goldValue: 2222
   hungerBar: {fileID: 2049652504}
   happinessBar: {fileID: 1646615491}
   hat: {fileID: 2126212206}
