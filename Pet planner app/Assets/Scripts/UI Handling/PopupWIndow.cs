@@ -20,11 +20,5 @@ public class PopupWIndow : MonoBehaviour
     public void DisableWithTween()
     {
         
-    }
-
-    IEnumerator Disable()
-    {
-        
-    }
-    
+    }    
 }
