@@ -16,7 +16,7 @@ public class TaskCreationHandler : MonoBehaviour
     public void CreateTask()
     {
         taskCreated = new Task(nameInput.text, descriptionInput.text, dateInput.dateTime, 
-            importanceInput.options[importanceInput.value].text, colourInput.SelectedColour);
+            importanceInput.value + 1, colourInput.SelectedColour);
         Debug.Log(taskCreated.name);
         Debug.Log(taskCreated.description);
         Debug.Log(taskCreated.dueDate);
