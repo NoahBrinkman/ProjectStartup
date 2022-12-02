@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,10 +18,11 @@ public class TaskCreationHandler : MonoBehaviour
     {
         taskCreated = new Task(nameInput.text, descriptionInput.text, dateInput.dateTime, 
             importanceInput.value + 1, colourInput.SelectedColour);
-        Debug.Log(taskCreated.name);
-        Debug.Log(taskCreated.description);
-        Debug.Log(taskCreated.dueDate);
-        Debug.Log(taskCreated.colour);
+        TaskManager.Instance.AddTask(taskCreated);
+        nameInput.text = String.Empty;
+        descriptionInput.text = String.Empty;
+        dateInput.ClearInput();
+        importanceInput.value = 0;
     }
     
 }

@@ -24,24 +24,31 @@ public class Task : IComparable<Task>
     
     public int CompareTo(Task t)
     {
+        int score = 0;
+        int scoreT = 0;
         if (importance > t.importance)
         {
-            return 1;
+            score += 1;
         }
-        else if (importance == t.importance)
+        else if (importance < t.importance)
         {
-            return 0;
-        }
-        else
-        {
-            return -1;
+            scoreT += 1;
         }
 
         if (dueDate < t.dueDate)
         {
-            return 1;
+            score += 10;
         }
-        else if (dueDate == t.dueDate)
+        else if (dueDate > t.dueDate)
+        {
+            scoreT += 10;
+        }
+
+
+        if (score > scoreT)
+        {
+            return 1;
+        }else if (score == scoreT)
         {
             return 0;
         }
@@ -49,7 +56,5 @@ public class Task : IComparable<Task>
         {
             return -1;
         }
-        
-        return 0;
     }
 }

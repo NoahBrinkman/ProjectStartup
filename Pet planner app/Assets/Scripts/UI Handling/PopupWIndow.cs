@@ -11,20 +11,21 @@ public class PopupWIndow : MonoBehaviour
     [SerializeField] private Vector3 popUpStartScale = new Vector3(.2f,.2f,.2f);
     [SerializeField] private float popUpDuration = 1.0f;
     [SerializeField] private Ease easeMode;
+
+    private RectTransform rTransform;
     private void OnEnable()
     {
-        GetComponent<RectTransform>().DOScale(popUpEndScale, popUpDuration).SetEase(easeMode);
+        rTransform = GetComponent<RectTransform>();
+        rTransform.DOScale(popUpEndScale, popUpDuration).SetEase(easeMode);
     }
 
 
     public void DisableWithTween()
     {
-        
-    }
-
-    IEnumerator Disable()
-    {
-        
+        Tween t =  rTransform.DOScale(new Vector3(), popUpDuration).SetEase(easeMode);
+        t.onComplete += delegate { rTransform.localScale = popUpStartScale; };
+        t.onComplete += delegate { gameObject.SetActive(false); };
+        t.Play();
     }
     
 }
