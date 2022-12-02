@@ -61,6 +61,15 @@ public class TaskManager : MonoBehaviour
     
     public void AddTask(Task task)
     {
-        
+        //validate the task
+        if (task.name == string.Empty || task.description == String.Empty || task.colour == Colour.None ||
+            task.dueDate < DateTime.Today)
+        {
+            Debug.LogError("TASK IS INVALID");
+        }
+        else
+        {
+            tasks.Add(task);
+        }
     }
 }

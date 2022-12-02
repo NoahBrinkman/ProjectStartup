@@ -13,8 +13,15 @@ public class VisualizedTask : MonoBehaviour
     [SerializeField] private Image colourImage;
     private Task selectedTask;
     
+    [SerializeField] private bool parentShouldBeCanvas = false;
+
     public void Initialize(Task task)
     {
+        if (parentShouldBeCanvas)
+        {
+            RectTransform rT = GetComponent<RectTransform>();
+            SetParentToCanvas(rT.position, rT.sizeDelta);
+        }
         selectedTask = task;
 
         nameTextfield.text = task.name;
@@ -60,6 +67,17 @@ public class VisualizedTask : MonoBehaviour
             }
         }
     }
-    
-    
+
+    public void SetParentToCanvas(Vector3 savedPosition, Vector2 savedSize)
+    {
+        do
+        {
+            transform.SetParent(transform.parent.parent, false);
+        } while (transform.parent.GetComponent<Canvas>() == null);
+
+      /* RectTransform rT = GetComponent<RectTransform>();
+       rT.position = savedPosition;
+       rT.sizeDelta = savedSize;*/
+    }
+
 }

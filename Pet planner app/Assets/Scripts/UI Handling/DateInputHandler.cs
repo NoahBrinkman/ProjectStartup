@@ -49,4 +49,8 @@ public class DateInputHandler : MonoBehaviour
         validateDate(input);
     }
 
+    public void ClearInput()
+    {
+        inField.text = String.Empty;
+    }
 }
