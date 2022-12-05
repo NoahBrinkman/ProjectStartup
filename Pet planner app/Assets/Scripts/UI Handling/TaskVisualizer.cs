@@ -19,7 +19,13 @@ public class TaskVisualizer : MonoBehaviour
 
     public void CheckForTasks()
     {
+        if (TaskManager.Instance == null)
+        {
+            Debug.LogWarning("No TaskManager Found");
+            return;
+        }
         List<Task> tasks = TaskManager.Instance.GetTasks();
+        
         createTaskPrompt.gameObject.SetActive(false);
         if (container.transform.childCount > 0)
         {
