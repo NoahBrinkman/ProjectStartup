@@ -32,10 +32,10 @@ public class TaskManager : MonoBehaviour
             DontDestroyOnLoad(this);
         }
         
-        //tasks.Add(new Task("ree","reeeeeeeeeeeeeeee", new DateTime(2022,12,6), 2, Colour.green));
-        //tasks.Add(new Task("ruu","uuuuuuuuuuuuuuuuuu", new DateTime(2022,12,8), 1, Colour.yellow));
-        //tasks.Add(new Task("roo","0000000000000000", new DateTime(2022,12,9), 3, Colour.pink));
-        //tasks.Sort();
+        tasks.Add(new Task("ree","reeeeeeeeeeeeeeee", new DateTime(2022,12,6), 2, Colour.green));
+        tasks.Add(new Task("ruu","uuuuuuuuuuuuuuuuuu", new DateTime(2022,12,8), 1, Colour.yellow));
+        tasks.Add(new Task("roo","0000000000000000", new DateTime(2022,12,9), 3, Colour.pink));
+        tasks.Sort();
 
     }
 

@@ -9,11 +9,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3944028318601670337, guid: 5092e9994efa5d04a9e74c7a509f7a9e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -294.5
+      value: -372.75
       objectReference: {fileID: 0}
     - target: {fileID: 3944028318601670337, guid: 5092e9994efa5d04a9e74c7a509f7a9e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 278
+      value: -662.5
       objectReference: {fileID: 0}
     - target: {fileID: 3944028318601670342, guid: 5092e9994efa5d04a9e74c7a509f7a9e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
