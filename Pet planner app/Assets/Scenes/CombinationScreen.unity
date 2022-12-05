@@ -876,11 +876,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   happinessValue: 0
   hungerValue: 0
-  goldValue: 0
+  goldValue: 2000
   hungerBar: {fileID: 1665977828}
   happinessBar: {fileID: 164743736}
-  hat: {fileID: 0}
-  jacket: {fileID: 0}
+  hat: {fileID: 572856221}
+  jacket: {fileID: 2058553451}
 --- !u!4 &406828350
 Transform:
   m_ObjectHideFlags: 0
@@ -1135,8 +1135,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 14.18}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 555.9999}
-  m_SizeDelta: {x: 121.66, y: 82.2762}
+  m_AnchoredPosition: {x: 0.000010848, y: 93.9}
+  m_SizeDelta: {x: 17.1796, y: 10.4376}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &572856221
 MonoBehaviour:
@@ -2587,18 +2587,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2058553449}
-  m_LocalRotation: {x: -0, y: -0, z: 0.123426355, w: 0.99235374}
+  m_LocalRotation: {x: -0, y: -0, z: 0.03739125, w: 0.9993007}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5.999999, y: 5.999999, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1981094756}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 14.18}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 4.286}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 190.594, y: -232.202}
-  m_SizeDelta: {x: 72.154, y: 108.503}
+  m_AnchoredPosition: {x: 33.99948, y: -32.714622}
+  m_SizeDelta: {x: 20.5739, y: 16.9515}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2058553451
 MonoBehaviour:
