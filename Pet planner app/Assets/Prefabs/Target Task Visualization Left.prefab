@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3944028318601670337, guid: 5092e9994efa5d04a9e74c7a509f7a9e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -662.5
+      value: -533.25
       objectReference: {fileID: 0}
     - target: {fileID: 3944028318601670342, guid: 5092e9994efa5d04a9e74c7a509f7a9e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -117,7 +117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3944028320206574827, guid: 5092e9994efa5d04a9e74c7a509f7a9e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3944028320206574827, guid: 5092e9994efa5d04a9e74c7a509f7a9e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
