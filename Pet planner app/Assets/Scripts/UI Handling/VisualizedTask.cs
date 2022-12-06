@@ -16,12 +16,12 @@ public class VisualizedTask : MonoBehaviour
     private Task selectedTask;
     
     [SerializeField] private bool parentShouldBeCanvas = false;
-
+    [SerializeField] private bool turnOffToggle = false;
     public UnityEvent OnCompleted;
 
     public void Initialize(Task task)
     {
-
+        if(turnOffToggle) toggle.gameObject.SetActive(false);
         if (parentShouldBeCanvas)
         {
             RectTransform rT = GetComponent<RectTransform>();
