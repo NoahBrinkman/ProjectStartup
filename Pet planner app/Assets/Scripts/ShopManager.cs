@@ -6,7 +6,17 @@ using UnityEngine.EventSystems;
 
 public class ShopManager : MonoBehaviour
 {
-    [SerializeField] private List<ItemInfo> shopItems = new List<ItemInfo>();
+    [SerializeField] private List<ItemInfo> currentList = new List<ItemInfo>();
+    private List<GameObject> currentShopObjects = new List<GameObject>();
+
+    [SerializeField] private List<ItemInfo> hatList = new List<ItemInfo>();
+    [SerializeField] private List<ItemInfo> jacketList = new List<ItemInfo>();
+    [SerializeField] private List<ItemInfo> accesoryList = new List<ItemInfo>();
+    [SerializeField] private List<ItemInfo> foodList = new List<ItemInfo>();
+
+    private List<List<ItemInfo>> categoryLists = new List<List<ItemInfo>>();
+    private int categoryIndex = 0;
+
     [SerializeField] private GameObject shopItemPrefab = null;
     [SerializeField] private ChildSceneUIHandler childSceneUIHandler = null;
 
@@ -14,15 +24,56 @@ public class ShopManager : MonoBehaviour
     private Button jacketSelectedButton;
     private Button accesorySelectedButton;
 
-    private void Start()
+    private void Update()
     {
-        foreach (ItemInfo item in shopItems)
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            SwitchCategory();
+        }
+    }
+
+    private void SwitchCategory()
+    {
+
+        foreach (GameObject item in currentShopObjects)
+        {
+            Destroy(item);
+        }
+
+        if(categoryIndex+1 != categoryLists.Count)
+        categoryIndex++;
+        else
+            categoryIndex = 0;
+
+        currentList = categoryLists[categoryIndex];
+
+        foreach (ItemInfo item in currentList)
         {
             GameObject newShopItem = Instantiate(shopItemPrefab);
             newShopItem.GetComponentsInChildren<Image>()[1].sprite = item.shopSprite;
             newShopItem.GetComponent<Button>().onClick.AddListener(delegate { BuyItem(item); });
             newShopItem.GetComponentInChildren<Text>().text = item.price.ToString();
             newShopItem.transform.SetParent(transform, false);
+            currentShopObjects.Add(newShopItem);
+        }
+    }
+
+    private void Start()
+    {
+        categoryLists.Add(hatList);
+        categoryLists.Add(jacketList);
+        categoryLists.Add(accesoryList);
+        categoryLists.Add(foodList);
+        currentList = categoryLists[categoryIndex];
+
+        foreach (ItemInfo item in currentList)
+        {
+            GameObject newShopItem = Instantiate(shopItemPrefab);
+            newShopItem.GetComponentsInChildren<Image>()[1].sprite = item.shopSprite;
+            newShopItem.GetComponent<Button>().onClick.AddListener(delegate { BuyItem(item); });
+            newShopItem.GetComponentInChildren<Text>().text = item.price.ToString();
+            newShopItem.transform.SetParent(transform, false);
+            currentShopObjects.Add(newShopItem);
         }
     }
 
