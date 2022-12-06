@@ -11,12 +11,14 @@ public class ShopManager : MonoBehaviour
 
     private Button hatSelectedButton;
     private Button jacketSelectedButton;
+    private Button accesorySelectedButton;
 
     private void Start()
     {
         foreach (ItemInfo item in shopItems)
         {
             GameObject newShopItem = Instantiate(shopItemPrefab);
+            newShopItem.GetComponentsInChildren<Image>()[1].sprite = item.shopSprite;
             newShopItem.GetComponent<Button>().onClick.AddListener(delegate { BuyItem(item); });
             newShopItem.GetComponentInChildren<Text>().text = item.price.ToString();
             newShopItem.transform.SetParent(transform, false);
@@ -25,13 +27,24 @@ public class ShopManager : MonoBehaviour
 
     private void BuyItem(ItemInfo item)
     {
-        Button button = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
-        if (UserManager.Instance.getGold >= item.price &&
-            button.GetComponent<Outline>().effectColor == Color.black)
+        if(item.category!= ItemInfo.categories.food)
         {
-            UserManager.Instance.setGold(-item.price);
-            button.GetComponent<Outline>().effectColor = Color.green;
-            button.onClick.AddListener(delegate { EquipItem(item); });
+            Button button = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
+            if (UserManager.Instance.getGold >= item.price &&
+                button.GetComponent<Outline>().effectColor == Color.black)
+            {
+                UserManager.Instance.setGold(-item.price);
+                button.GetComponent<Outline>().effectColor = Color.green;
+                button.onClick.AddListener(delegate { EquipItem(item); });
+            }
+        }
+        else
+        {
+            if(UserManager.Instance.getGold >= item.price && UserManager.Instance.getHunger < 1)
+            {
+                UserManager.Instance.setGold(-item.price);
+                UserManager.Instance.Feed(0.3f);
+            }
         }
     }
 
@@ -50,6 +63,12 @@ public class ShopManager : MonoBehaviour
 
         if (item.category == ItemInfo.categories.jackets)
             jacketSelectedButton = button;
+
+        if (accesorySelectedButton != null && item.category == ItemInfo.categories.accesory)
+            accesorySelectedButton.GetComponent<Outline>().effectColor = Color.green;
+
+        if (item.category == ItemInfo.categories.accesory)
+            accesorySelectedButton = button;
 
         UserManager.Instance.SetCustomization(item);
         button.GetComponent<Outline>().effectColor = Color.blue;
