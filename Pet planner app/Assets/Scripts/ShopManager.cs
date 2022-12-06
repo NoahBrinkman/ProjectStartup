@@ -8,6 +8,7 @@ public class ShopManager : MonoBehaviour
 {
     [SerializeField] private List<ItemInfo> shopItems = new List<ItemInfo>();
     [SerializeField] private GameObject shopItemPrefab = null;
+    [SerializeField] private ChildSceneUIHandler childSceneUIHandler = null;
 
     private Button hatSelectedButton;
     private Button jacketSelectedButton;
@@ -43,7 +44,7 @@ public class ShopManager : MonoBehaviour
             if(UserManager.Instance.getGold >= item.price && UserManager.Instance.getHunger < 1)
             {
                 UserManager.Instance.setGold(-item.price);
-                UserManager.Instance.Feed(0.3f);
+                UserManager.Instance.setHunger(0.3f);
             }
         }
     }
@@ -70,7 +71,7 @@ public class ShopManager : MonoBehaviour
         if (item.category == ItemInfo.categories.accesory)
             accesorySelectedButton = button;
 
-        UserManager.Instance.SetCustomization(item);
+        childSceneUIHandler.SetCustomization(item);
         button.GetComponent<Outline>().effectColor = Color.blue;
     }
 }
