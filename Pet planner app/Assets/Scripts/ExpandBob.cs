@@ -26,6 +26,6 @@ public class ExpandBob : MonoBehaviour
         GetComponent<RectTransform>().DOMoveY(2150, durationInSeconds);
         GetComponent<RectTransform>().DOSizeDelta(new Vector2(520, 436), durationInSeconds);
         backGroundImage.GetComponent<RectTransform>().DOMoveY(endPosBGY+995, durationInSeconds);
-        bob.GetComponent<RectTransform>().DOMoveY(1900, durationInSeconds);
+        bob.GetComponent<RectTransform>().DOMoveY(2000, durationInSeconds);
     }
 }

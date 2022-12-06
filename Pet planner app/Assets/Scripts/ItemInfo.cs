@@ -4,8 +4,9 @@ using UnityEngine;
 public struct ItemInfo
 {
     public string identifier;
-    public int price;
+    public float price;
+    public Sprite shopSprite;
     public Sprite visuals;
-    public enum categories {hats, backgrounds, jackets, food};
+    public enum categories {hats, jackets, accesory, food};
     public categories category;
 }
