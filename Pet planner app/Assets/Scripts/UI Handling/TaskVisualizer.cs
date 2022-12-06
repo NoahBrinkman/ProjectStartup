@@ -45,7 +45,7 @@ public class TaskVisualizer : MonoBehaviour
                 
                 GameObject o = Instantiate(taskPrefabs[Random.Range(0,taskPrefabs.Count)], container);
                 o.GetComponentInChildren<VisualizedTask>(true).Initialize(tasks[i]);
-                o.GetComponentInChildren<VisualizedTask>(true).OnCompleted.AddListener(delegate { CheckForTasks(); });
+                o.GetComponentInChildren<VisualizedTask>(true)?.OnCompleted.AddListener(delegate { CheckForTasks(); });
             }
         }
         else
