@@ -62,6 +62,8 @@ public class UserManager : MonoBehaviour
 
     public float getGold => goldValue;
 
+    public float getHunger => hungerValue;
+
     public void setGold(float amount)
     {
         goldValue += amount;

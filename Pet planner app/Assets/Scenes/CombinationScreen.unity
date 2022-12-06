@@ -2032,7 +2032,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopItems:
   - identifier: Apple
-    price: 0.3
+    price: 5
     shopSprite: {fileID: 21300000, guid: 579c8bb3849269b41bb6f037a49286fb, type: 3}
     visuals: {fileID: 21300000, guid: 7c5938430f3ab8348bdfe4fc58ea13df, type: 3}
     category: 3

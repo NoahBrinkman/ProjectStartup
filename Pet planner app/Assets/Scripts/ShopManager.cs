@@ -40,7 +40,11 @@ public class ShopManager : MonoBehaviour
         }
         else
         {
-            UserManager.Instance.Feed(item.price);
+            if(UserManager.Instance.getGold >= item.price && UserManager.Instance.getHunger < 1)
+            {
+                UserManager.Instance.setGold(-item.price);
+                UserManager.Instance.Feed(0.3f);
+            }
         }
     }
 
