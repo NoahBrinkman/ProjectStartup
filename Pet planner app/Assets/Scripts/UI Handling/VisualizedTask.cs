@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class VisualizedTask : MonoBehaviour
@@ -11,12 +12,16 @@ public class VisualizedTask : MonoBehaviour
     [SerializeField] private Text dueDateText;
     [SerializeField] private Text importanceText;
     [SerializeField] private Image colourImage;
+    [SerializeField] private Toggle toggle;
     private Task selectedTask;
     
     [SerializeField] private bool parentShouldBeCanvas = false;
 
+    public UnityEvent OnCompleted;
+
     public void Initialize(Task task)
     {
+
         if (parentShouldBeCanvas)
         {
             RectTransform rT = GetComponent<RectTransform>();
@@ -66,8 +71,24 @@ public class VisualizedTask : MonoBehaviour
                 break;
             }
         }
+        if (UserManager.Instance != null)
+        {
+            OnCompleted.AddListener(delegate { UserManager.Instance.OnTaskCompleted(selectedTask.importance); });
+            OnCompleted.AddListener(delegate { TaskManager.Instance.OnTaskCompleted(selectedTask); });
+        }
     }
-
+    
+    public void SetComplete()
+    {
+        if(selectedTask == null) return;
+        
+        selectedTask.isCompleted = toggle.isOn;
+        if (selectedTask.isCompleted)
+        {
+            OnCompleted?.Invoke();
+        }
+    }
+    
     public void SetParentToCanvas(Vector3 savedPosition, Vector2 savedSize)
     {
         do

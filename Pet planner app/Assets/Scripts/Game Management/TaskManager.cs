@@ -76,4 +76,12 @@ public class TaskManager : MonoBehaviour
             tasks.Add(task);
         }
     }
+
+    public void OnTaskCompleted(Task t)
+    {
+        if (tasks.Contains(t))
+        {
+            tasks.Remove(t);
+        }
+    }
 }
