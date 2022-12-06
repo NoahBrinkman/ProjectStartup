@@ -91,4 +91,10 @@ public class UserManager : MonoBehaviour
             jacket.sprite = item.visuals;
         }
     }
+
+    public void OnTaskCompleted(int importance)
+    {
+        goldValue += importance * 3;
+    }
+    
 }
