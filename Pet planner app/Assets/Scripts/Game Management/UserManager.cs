@@ -45,11 +45,13 @@ public class UserManager : MonoBehaviour
     public void setHunger(float amount)
     {
         hungerValue += amount;
+        hungerValue = Mathf.Clamp(hungerValue, 0, 1);
     }
 
     public void setHappy(float amount)
     {
         happinessValue += amount;
+        happinessValue = Mathf.Clamp(happinessValue, 0, 1);
     }
 
     public void OnTaskCompleted(int importance)
