@@ -56,11 +56,11 @@ public class ShopManager : MonoBehaviour
                 newShopItem.GetComponent<Button>().interactable = true;
                 if (selectedList.Contains(item))
                 {
-                    if (item.category == ItemInfo.categories.hats)
+                    if (item.category == ItemInfo.categories.Hats)
                         hatSelectedButton = newShopItem.GetComponent<Button>();
-                    if (item.category == ItemInfo.categories.jackets)
+                    if (item.category == ItemInfo.categories.Jackets)
                         jacketSelectedButton = newShopItem.GetComponent<Button>();
-                    if (item.category == ItemInfo.categories.accesory)
+                    if (item.category == ItemInfo.categories.Accesory)
                         accesorySelectedButton = newShopItem.GetComponent<Button>();
 
                     newShopItem.GetComponent<Outline>().effectColor = Color.blue;
@@ -101,11 +101,11 @@ public class ShopManager : MonoBehaviour
 
     private void BuyItem(ItemInfo item)
     {
-        if(item.category!= ItemInfo.categories.food)
+        if(item.category!= ItemInfo.categories.Food)
         {
             Button button = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
             if (UserManager.Instance.getGold >= item.price &&
-                button.GetComponent<Outline>().effectColor == Color.black)
+                button.GetComponent<Outline>().effectColor == new Color(0.7568628f, 0.9411765f, 0.9686275f, 1))
             {
                 boughtList.Add(item);
                 UserManager.Instance.setGold(-item.price);
@@ -128,37 +128,69 @@ public class ShopManager : MonoBehaviour
 
         Button button = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
 
-        if (hatSelectedButton != null && item.category == ItemInfo.categories.hats)
+        if (hatSelectedButton != null && item.category == ItemInfo.categories.Hats)
         {
             foreach (ItemInfo obj in selectedList.ToArray())
             {
-                if(obj.category == ItemInfo.categories.hats)
+                if(obj.category == ItemInfo.categories.Hats)
                     selectedList.Remove(obj);
             }
             hatSelectedButton.GetComponent<Outline>().effectColor = Color.green;
             foreach (ItemInfo obj in selectedList.ToArray())
             {
-                if (obj.category == ItemInfo.categories.hats)
+                if (obj.category == ItemInfo.categories.Hats)
                     hatSelectedButton.onClick.AddListener(delegate { EquipItem(obj); });
             }
         }
 
-
-        if (item.category == ItemInfo.categories.hats)
+        if (item.category == ItemInfo.categories.Hats)
         {
             selectedList.Add(item);
             hatSelectedButton = button;
         }
 
-        if (jacketSelectedButton != null && item.category == ItemInfo.categories.jackets)
+        if (jacketSelectedButton != null && item.category == ItemInfo.categories.Jackets)
+        {
+            foreach (ItemInfo obj in selectedList.ToArray())
+            {
+                if (obj.category == ItemInfo.categories.Jackets)
+                    selectedList.Remove(obj);
+            }
             jacketSelectedButton.GetComponent<Outline>().effectColor = Color.green;
-        if (item.category == ItemInfo.categories.jackets)
-            jacketSelectedButton = button;
+            foreach (ItemInfo obj in selectedList.ToArray())
+            {
+                if (obj.category == ItemInfo.categories.Jackets)
+                    jacketSelectedButton.onClick.AddListener(delegate { EquipItem(obj); });
+            }
+        }
 
-        if (accesorySelectedButton != null && item.category == ItemInfo.categories.accesory)
+        if (item.category == ItemInfo.categories.Jackets)
+        {
+            selectedList.Add(item);
+            jacketSelectedButton = button;
+        }
+
+        if (accesorySelectedButton != null && item.category == ItemInfo.categories.Accesory)
+        {
+            foreach (ItemInfo obj in selectedList.ToArray())
+            {
+                if (obj.category == ItemInfo.categories.Accesory)
+                    selectedList.Remove(obj);
+            }
             accesorySelectedButton.GetComponent<Outline>().effectColor = Color.green;
-        if (item.category == ItemInfo.categories.accesory)
+            foreach (ItemInfo obj in selectedList.ToArray())
+            {
+                if (obj.category == ItemInfo.categories.Accesory)
+                    accesorySelectedButton.onClick.AddListener(delegate { EquipItem(obj); });
+            }
+        }
+
+        if (item.category == ItemInfo.categories.Accesory)
+        {
+            selectedList.Add(item);
             accesorySelectedButton = button;
+        }
+
 
         childSceneUIHandler.SetCustomization(item);
         button.GetComponent<Outline>().effectColor = Color.blue;
