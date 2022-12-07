@@ -6,7 +6,19 @@ using UnityEngine.EventSystems;
 
 public class ShopManager : MonoBehaviour
 {
-    [SerializeField] private List<ItemInfo> shopItems = new List<ItemInfo>();
+    [SerializeField] private List<ItemInfo> currentList = new List<ItemInfo>();
+    private List<GameObject> currentShopObjects = new List<GameObject>();
+    private List<ItemInfo> boughtList = new List<ItemInfo>();
+    private List<ItemInfo> selectedList = new List<ItemInfo>();
+
+    [SerializeField] private List<ItemInfo> hatList = new List<ItemInfo>();
+    [SerializeField] private List<ItemInfo> jacketList = new List<ItemInfo>();
+    [SerializeField] private List<ItemInfo> accesoryList = new List<ItemInfo>();
+    [SerializeField] private List<ItemInfo> foodList = new List<ItemInfo>();
+
+    private List<List<ItemInfo>> categoryLists = new List<List<ItemInfo>>();
+    private int categoryIndex = 0;
+
     [SerializeField] private GameObject shopItemPrefab = null;
     [SerializeField] private ChildSceneUIHandler childSceneUIHandler = null;
 
@@ -14,15 +26,76 @@ public class ShopManager : MonoBehaviour
     private Button jacketSelectedButton;
     private Button accesorySelectedButton;
 
+    public void SwitchCategory(int amount)
+    {
+        foreach (GameObject item in currentShopObjects)
+        {
+            Destroy(item);
+        }
+
+        if (categoryIndex + amount > categoryLists.Count-1)
+            categoryIndex = 0;
+        else if (categoryIndex + amount < 0)
+            categoryIndex = categoryLists.Count-1;
+        else
+            categoryIndex += amount;
+        currentList = categoryLists[categoryIndex];
+
+        foreach (ItemInfo item in currentList)
+        {
+            childSceneUIHandler.UpdateCategory(item.category);
+            GameObject newShopItem = Instantiate(shopItemPrefab);
+            newShopItem.GetComponentsInChildren<Image>()[1].sprite = item.shopSprite;
+            newShopItem.GetComponent<Button>().onClick.AddListener(delegate { BuyItem(item); });
+            newShopItem.GetComponentInChildren<Text>().text = item.price.ToString();
+            newShopItem.transform.SetParent(transform, false);
+            if (item.price >= UserManager.Instance.getGold)
+                newShopItem.GetComponent<Button>().interactable = false;
+            if (boughtList.Contains(item))
+            {
+                newShopItem.GetComponent<Button>().interactable = true;
+                if (selectedList.Contains(item))
+                {
+                    if (item.category == ItemInfo.categories.hats)
+                        hatSelectedButton = newShopItem.GetComponent<Button>();
+                    if (item.category == ItemInfo.categories.jackets)
+                        jacketSelectedButton = newShopItem.GetComponent<Button>();
+                    if (item.category == ItemInfo.categories.accesory)
+                        accesorySelectedButton = newShopItem.GetComponent<Button>();
+
+                    newShopItem.GetComponent<Outline>().effectColor = Color.blue;
+                }
+                else
+                {
+                    newShopItem.GetComponent<Outline>().effectColor = Color.green;
+                    newShopItem.GetComponent<Button>().onClick.AddListener(delegate { EquipItem(item); });
+                }
+            }
+
+
+            currentShopObjects.Add(newShopItem);
+        }
+    }
+
     private void Start()
     {
-        foreach (ItemInfo item in shopItems)
+        categoryLists.Add(hatList);
+        categoryLists.Add(jacketList);
+        categoryLists.Add(accesoryList);
+        categoryLists.Add(foodList);
+        currentList = categoryLists[categoryIndex];
+
+        foreach (ItemInfo item in currentList)
         {
             GameObject newShopItem = Instantiate(shopItemPrefab);
             newShopItem.GetComponentsInChildren<Image>()[1].sprite = item.shopSprite;
             newShopItem.GetComponent<Button>().onClick.AddListener(delegate { BuyItem(item); });
             newShopItem.GetComponentInChildren<Text>().text = item.price.ToString();
             newShopItem.transform.SetParent(transform, false);
+            currentShopObjects.Add(newShopItem);
+
+            if (item.price >= UserManager.Instance.getGold)
+                newShopItem.GetComponent<Button>().interactable = false;
         }
     }
 
@@ -34,6 +107,7 @@ public class ShopManager : MonoBehaviour
             if (UserManager.Instance.getGold >= item.price &&
                 button.GetComponent<Outline>().effectColor == Color.black)
             {
+                boughtList.Add(item);
                 UserManager.Instance.setGold(-item.price);
                 button.GetComponent<Outline>().effectColor = Color.green;
                 button.onClick.AddListener(delegate { EquipItem(item); });
@@ -51,23 +125,38 @@ public class ShopManager : MonoBehaviour
 
     private void EquipItem(ItemInfo item)
     {
+
         Button button = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
 
         if (hatSelectedButton != null && item.category == ItemInfo.categories.hats)
+        {
+            foreach (ItemInfo obj in selectedList.ToArray())
+            {
+                if(obj.category == ItemInfo.categories.hats)
+                    selectedList.Remove(obj);
+            }
             hatSelectedButton.GetComponent<Outline>().effectColor = Color.green;
+            foreach (ItemInfo obj in selectedList.ToArray())
+            {
+                if (obj.category == ItemInfo.categories.hats)
+                    hatSelectedButton.onClick.AddListener(delegate { EquipItem(obj); });
+            }
+        }
+
 
         if (item.category == ItemInfo.categories.hats)
+        {
+            selectedList.Add(item);
             hatSelectedButton = button;
+        }
 
         if (jacketSelectedButton != null && item.category == ItemInfo.categories.jackets)
             jacketSelectedButton.GetComponent<Outline>().effectColor = Color.green;
-
         if (item.category == ItemInfo.categories.jackets)
             jacketSelectedButton = button;
 
         if (accesorySelectedButton != null && item.category == ItemInfo.categories.accesory)
             accesorySelectedButton.GetComponent<Outline>().effectColor = Color.green;
-
         if (item.category == ItemInfo.categories.accesory)
             accesorySelectedButton = button;
 
