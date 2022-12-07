@@ -13,7 +13,7 @@ public class PopupWIndow : MonoBehaviour
     [SerializeField] private Ease easeMode;
 
     private RectTransform rTransform;
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         rTransform = GetComponent<RectTransform>();
         rTransform.DOScale(popUpEndScale, popUpDuration).SetEase(easeMode);

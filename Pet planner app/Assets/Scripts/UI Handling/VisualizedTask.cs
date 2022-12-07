@@ -8,8 +8,11 @@ using UnityEngine.UI;
 public class VisualizedTask : MonoBehaviour
 {
     [SerializeField] private Text nameTextfield;
+    public Text NameTextField => nameTextfield;
     [SerializeField] private Text descriptionField;
+    public Text DescriptionTextField => descriptionField;
     [SerializeField] private Text dueDateText;
+    public Text DueDateText => dueDateText;
     [SerializeField] private Text importanceText;
     [SerializeField] private Image colourImage;
     [SerializeField] private Toggle toggle;
@@ -17,8 +20,14 @@ public class VisualizedTask : MonoBehaviour
     
     [SerializeField] private bool parentShouldBeCanvas = false;
     [SerializeField] private bool turnOffToggle = false;
+    [SerializeField] private bool isPopUp = false;
     public UnityEvent OnCompleted;
 
+    public int GetImportance()
+    {
+        return selectedTask.importance;
+    }
+    
     public void Initialize(Task task)
     {
         if(turnOffToggle) toggle.gameObject.SetActive(false);
@@ -88,7 +97,16 @@ public class VisualizedTask : MonoBehaviour
             OnCompleted?.Invoke();
         }
     }
-    
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && isPopUp)
+        {
+            GetComponent<PopupWIndow>().DisableWithTween();
+            
+        }
+    }
+
     public void SetParentToCanvas(Vector3 savedPosition, Vector2 savedSize)
     {
         do
