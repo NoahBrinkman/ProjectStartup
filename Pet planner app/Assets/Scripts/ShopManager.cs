@@ -26,27 +26,19 @@ public class ShopManager : MonoBehaviour
     private Button jacketSelectedButton;
     private Button accesorySelectedButton;
 
-    private void Update()
+    public void SwitchCategory(int amount)
     {
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            SwitchCategory();
-        }
-    }
-
-    private void SwitchCategory()
-    {
-
         foreach (GameObject item in currentShopObjects)
         {
             Destroy(item);
         }
 
-        if(categoryIndex+1 != categoryLists.Count)
-        categoryIndex++;
-        else
+        if (categoryIndex + amount > categoryLists.Count-1)
             categoryIndex = 0;
-
+        else if (categoryIndex + amount < 0)
+            categoryIndex = categoryLists.Count-1;
+        else
+            categoryIndex += amount;
         currentList = categoryLists[categoryIndex];
 
         foreach (ItemInfo item in currentList)
