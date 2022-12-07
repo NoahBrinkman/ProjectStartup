@@ -105,7 +105,7 @@ public class ShopManager : MonoBehaviour
         {
             Button button = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
             if (UserManager.Instance.getGold >= item.price &&
-                button.GetComponent<Outline>().effectColor == Color.black)
+                button.GetComponent<Outline>().effectColor == new Color(0.7568628f, 0.9411765f, 0.9686275f, 1))
             {
                 boughtList.Add(item);
                 UserManager.Instance.setGold(-item.price);
