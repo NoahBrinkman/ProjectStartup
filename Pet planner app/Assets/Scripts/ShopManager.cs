@@ -43,6 +43,7 @@ public class ShopManager : MonoBehaviour
 
         foreach (ItemInfo item in currentList)
         {
+            childSceneUIHandler.UpdateCategory(item.category);
             GameObject newShopItem = Instantiate(shopItemPrefab);
             newShopItem.GetComponentsInChildren<Image>()[1].sprite = item.shopSprite;
             newShopItem.GetComponent<Button>().onClick.AddListener(delegate { BuyItem(item); });

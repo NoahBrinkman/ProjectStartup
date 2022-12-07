@@ -9,6 +9,7 @@ public class ChildSceneUIHandler : MonoBehaviour
 
     [SerializeField] private Image hungerBar;
     [SerializeField] private Image happinessBar;
+    [SerializeField] private Text categoryText;
     public Image hat = null;
     public Image jacket = null;
     public Image accesory = null;
@@ -44,6 +45,10 @@ public class ChildSceneUIHandler : MonoBehaviour
         UpdateBarValues();
     }
 
+    public void UpdateCategory(ItemInfo.categories category)
+    {
+        categoryText.text = category.ToString();
+    }
     private void UpdateBarValues()
     {
         hungerBar.fillAmount = UserManager.Instance.getHunger;
