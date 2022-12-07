@@ -1336,7 +1336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   happinessValue: 1
   hungerValue: 1
-  goldValue: 2222
+  goldValue: 0
 --- !u!4 &406828350
 Transform:
   m_ObjectHideFlags: 0
@@ -2467,42 +2467,42 @@ MonoBehaviour:
   currentList: []
   hatList:
   - identifier: Beanie
-    price: 10
+    price: 2
     shopSprite: {fileID: 21300000, guid: 58907fbabd1d7c84f8ca645978f83756, type: 3}
     visuals: {fileID: 21300000, guid: ac8b18ff9437d944db8cc7a07a6644f8, type: 3}
     category: 0
   - identifier: Cat Ears
-    price: 3
+    price: 4
     shopSprite: {fileID: 21300000, guid: a314cec13e38e254f87e88900d515155, type: 3}
     visuals: {fileID: 21300000, guid: f2e770374da87084e9e076f8d8b550d9, type: 3}
     category: 0
   - identifier: Chef's Hat
-    price: 3
+    price: 4
     shopSprite: {fileID: 21300000, guid: 4460f97783ab885498c3458656e75808, type: 3}
     visuals: {fileID: 21300000, guid: 19e4ebcadd27c904496ce8e48f926e0d, type: 3}
     category: 0
   - identifier: Christmas Hat
-    price: 3
+    price: 6
     shopSprite: {fileID: 21300000, guid: 76b7d2b68999ece45a94ab9d32f4da95, type: 3}
     visuals: {fileID: 21300000, guid: 6c103c6798c1e3047b8aa467a4d9c1da, type: 3}
     category: 0
   - identifier: Cowboy Hat
-    price: 3
+    price: 8
     shopSprite: {fileID: 21300000, guid: 8e7cc36194dc5684693eca94c35467f5, type: 3}
     visuals: {fileID: 21300000, guid: 2b26c66aa3ad92d4681f7c6f93ad7e1b, type: 3}
     category: 0
   - identifier: Dog Ears
-    price: 3
+    price: 9
     shopSprite: {fileID: 21300000, guid: a73a7094e6302f740a45ada597ca93f0, type: 3}
     visuals: {fileID: 21300000, guid: 20707db7fceef0749966e906bf012d93, type: 3}
     category: 0
   - identifier: Flowercrown
-    price: 3
+    price: 11
     shopSprite: {fileID: 21300000, guid: a94c66d53ad24ce4e8987fe355dc025e, type: 3}
     visuals: {fileID: 21300000, guid: 3173c02d38276f64da31a64a52c7a27e, type: 3}
     category: 0
   - identifier: Sunglasses
-    price: 3
+    price: 15
     shopSprite: {fileID: 21300000, guid: f4c1f79f840f7f74da6c714091d52f51, type: 3}
     visuals: {fileID: 21300000, guid: 50a28db7e09cee149af9c79ea1bdb44f, type: 3}
     category: 0
@@ -2513,37 +2513,37 @@ MonoBehaviour:
     visuals: {fileID: 21300000, guid: dedb189d2aff90245acf3752a4895aaa, type: 3}
     category: 1
   - identifier: Cat Collar
-    price: 3
+    price: 5
     shopSprite: {fileID: 21300000, guid: e624f4ceaa9490849b534e0f062e2232, type: 3}
     visuals: {fileID: 21300000, guid: 4e046594f675c1744b242ce92fa09748, type: 3}
     category: 1
   - identifier: Dog Collar
-    price: 3
+    price: 6
     shopSprite: {fileID: 21300000, guid: 2326bd3b768366b42858ea4803225251, type: 3}
     visuals: {fileID: 21300000, guid: 5637a96e5a1f6d54da371f458eee8d28, type: 3}
     category: 1
   - identifier: Headset
-    price: 3
+    price: 7
     shopSprite: {fileID: 21300000, guid: 9f23faccc0ff5a741856e09244f1ac3e, type: 3}
     visuals: {fileID: 21300000, guid: 49586d1ff2ee9f543bf2a53120c49eeb, type: 3}
     category: 1
   - identifier: Peace Necklace
-    price: 3
+    price: 8
     shopSprite: {fileID: 21300000, guid: edbb5edb7d1733344bfd19899727e54b, type: 3}
     visuals: {fileID: 21300000, guid: 36283ac4e97c26c40a2ecaa26984a90a, type: 3}
     category: 1
   - identifier: Scarf
-    price: 3
+    price: 8
     shopSprite: {fileID: 21300000, guid: 59881f96311855c4fa02a292d3d1a53d, type: 3}
     visuals: {fileID: 21300000, guid: 5e6035e7bf84afc4ebd1c1f43edfd7bc, type: 3}
     category: 1
   - identifier: Sherrif's Badge
-    price: 3
+    price: 10
     shopSprite: {fileID: 21300000, guid: b51de7d0d711bd14498b47529c63345d, type: 3}
     visuals: {fileID: 21300000, guid: 39d269085859eda49ac2a2fd98746ad3, type: 3}
     category: 1
   - identifier: Towel
-    price: 3
+    price: 16
     shopSprite: {fileID: 21300000, guid: 5b6785e46da19664e857fdfb08ca5648, type: 3}
     visuals: {fileID: 21300000, guid: c85e6b7a34d057e449b3df75823411ae, type: 3}
     category: 1
@@ -2554,44 +2554,79 @@ MonoBehaviour:
     visuals: {fileID: 21300000, guid: 2410720e75e96854a9863a982d695df2, type: 3}
     category: 2
   - identifier: Bone
-    price: 3
+    price: 4
     shopSprite: {fileID: 21300000, guid: 1bca3ec9e019cc8478ad431a508d84ce, type: 3}
     visuals: {fileID: 21300000, guid: f9156a59e0a4b434ba4a332b866705a4, type: 3}
     category: 2
   - identifier: Bracelets
-    price: 3
+    price: 5
     shopSprite: {fileID: 21300000, guid: 9244034662430394ebdce4a64eb15880, type: 3}
     visuals: {fileID: 21300000, guid: bfdc3bea3a0cb4f4eb7febb27e369361, type: 3}
     category: 2
   - identifier: Candy Cane
-    price: 3
+    price: 5
     shopSprite: {fileID: 21300000, guid: bcf20c029d4897d49869f0a4c3edf062, type: 3}
     visuals: {fileID: 21300000, guid: d60508f2715546d428b16f3b65762a93, type: 3}
     category: 2
   - identifier: Controller
-    price: 3
+    price: 6
     shopSprite: {fileID: 21300000, guid: f3d9d1d6e39d6c649868266968d6e0b6, type: 3}
     visuals: {fileID: 21300000, guid: 9b553b2106cc32d41864c647e97fea24, type: 3}
     category: 2
   - identifier: Lasso
-    price: 3
+    price: 8
     shopSprite: {fileID: 21300000, guid: fad049c8474d6d24186e9c4dd0a76bbe, type: 3}
     visuals: {fileID: 21300000, guid: 4f3f286670b96074fbe2656719a6d65f, type: 3}
     category: 2
   - identifier: Spatula
-    price: 3
+    price: 9
     shopSprite: {fileID: 21300000, guid: ee8f18a3d1938df4abc87311692a24bc, type: 3}
     visuals: {fileID: 21300000, guid: 4cb34a3492d5fa043928f9cd1c251fa4, type: 3}
     category: 2
   - identifier: Yarn
-    price: 3
+    price: 10
     shopSprite: {fileID: 21300000, guid: 957e4501c12c81343b4728e4a563e70c, type: 3}
     visuals: {fileID: 21300000, guid: 7c5938430f3ab8348bdfe4fc58ea13df, type: 3}
     category: 2
   foodList:
   - identifier: Apple
     price: 5
-    shopSprite: {fileID: 21300000, guid: 579c8bb3849269b41bb6f037a49286fb, type: 3}
+    shopSprite: {fileID: 21300000, guid: e4d9b1c7191c1884ba898861e298bce0, type: 3}
+    visuals: {fileID: 0}
+    category: 3
+  - identifier: Banana
+    price: 6
+    shopSprite: {fileID: 21300000, guid: 2fbf61c8daf70c9499873a242c56cd6c, type: 3}
+    visuals: {fileID: 0}
+    category: 3
+  - identifier: Broccoli
+    price: 8
+    shopSprite: {fileID: 21300000, guid: f15d82ccba40fc740939305d38d34245, type: 3}
+    visuals: {fileID: 0}
+    category: 3
+  - identifier: Carrot
+    price: 10
+    shopSprite: {fileID: 21300000, guid: db85491cea48ad74491c92e3cd493108, type: 3}
+    visuals: {fileID: 0}
+    category: 3
+  - identifier: Croissant
+    price: 11
+    shopSprite: {fileID: 21300000, guid: 24f5a5a99d357544f9c535b0c141071d, type: 3}
+    visuals: {fileID: 0}
+    category: 3
+  - identifier: Donut
+    price: 12
+    shopSprite: {fileID: 21300000, guid: 8f04d52c85f4801458769421490caf7f, type: 3}
+    visuals: {fileID: 0}
+    category: 3
+  - identifier: Pie
+    price: 15
+    shopSprite: {fileID: 21300000, guid: 8e04b404b9e0b55409c067a4413d44e7, type: 3}
+    visuals: {fileID: 0}
+    category: 3
+  - identifier: Pizza
+    price: 16
+    shopSprite: {fileID: 21300000, guid: e4fe87aa970ec02479bd11912b642d38, type: 3}
     visuals: {fileID: 0}
     category: 3
   shopItemPrefab: {fileID: 8611703894735081435, guid: 7edd5d86f3e91a141bd179b6a86ce2b0, type: 3}
