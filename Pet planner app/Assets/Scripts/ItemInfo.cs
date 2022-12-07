@@ -7,6 +7,6 @@ public struct ItemInfo
     public float price;
     public Sprite shopSprite;
     public Sprite visuals;
-    public enum categories {hats, jackets, accesory, food};
+    public enum categories {Hats, Jackets, Accesory, Food};
     public categories category;
 }

@@ -219,6 +219,7 @@ MonoBehaviour:
   - {fileID: 1285507736452699829, guid: 32ec8d95c63ebb54fb77565a1aeed169, type: 3}
   - {fileID: 8575294923146701729, guid: 311dca79c7736cf40b13736747600ca5, type: 3}
   createTaskPrompt: {fileID: 1844763428}
+  window: {fileID: 0}
 --- !u!1 &64271071
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,7 +519,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: hats
+  m_Text: Hats
 --- !u!1 &164743735
 GameObject:
   m_ObjectHideFlags: 0

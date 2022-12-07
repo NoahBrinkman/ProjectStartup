@@ -16,7 +16,7 @@ public class ChildSceneUIHandler : MonoBehaviour
 
     public void SetCustomization(ItemInfo item)
     {
-        if (item.category == ItemInfo.categories.hats)
+        if (item.category == ItemInfo.categories.Hats)
         {
             if (!hat.gameObject.activeSelf)
                 hat.gameObject.SetActive(true);
@@ -24,7 +24,7 @@ public class ChildSceneUIHandler : MonoBehaviour
             hat.sprite = item.visuals;
         }
 
-        if (item.category == ItemInfo.categories.jackets)
+        if (item.category == ItemInfo.categories.Jackets)
         {
             if (!jacket.gameObject.activeSelf)
                 jacket.gameObject.SetActive(true);
@@ -32,7 +32,7 @@ public class ChildSceneUIHandler : MonoBehaviour
             jacket.sprite = item.visuals;
         }
 
-        if (item.category == ItemInfo.categories.accesory)
+        if (item.category == ItemInfo.categories.Accesory)
         {
             if (!accesory.gameObject.activeSelf)
                 accesory.gameObject.SetActive(true);
