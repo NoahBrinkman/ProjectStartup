@@ -32,9 +32,9 @@ public class TaskManager : MonoBehaviour
             DontDestroyOnLoad(this);
         }
         
-        tasks.Add(new Task("ree","reeeeeeeeeeeeeeee", new DateTime(2022,12,6), 2, Colour.green));
-        tasks.Add(new Task("ruu","uuuuuuuuuuuuuuuuuu", new DateTime(2022,12,8), 1, Colour.yellow));
-        tasks.Add(new Task("roo","0000000000000000", new DateTime(2022,12,15), 3, Colour.pink));
+        tasks.Add(new Task("Do Dishes","don't just rinse them", new DateTime(2022,12,6), 2, Colour.green));
+        tasks.Add(new Task("Walk dog","Before 12:00", new DateTime(2022,12,8), 1, Colour.yellow));
+        tasks.Add(new Task("Clean your room","Everything", new DateTime(2022,12,15), 3, Colour.pink));
         tasks.Sort();
 
     }
