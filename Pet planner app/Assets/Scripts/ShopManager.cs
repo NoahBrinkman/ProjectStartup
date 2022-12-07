@@ -143,6 +143,11 @@ public class ShopManager : MonoBehaviour
                     selectedList.Remove(obj);
             }
             hatSelectedButton.GetComponent<Outline>().effectColor = Color.green;
+            foreach (ItemInfo obj in selectedList.ToArray())
+            {
+                if (obj.category == ItemInfo.categories.hats)
+                    hatSelectedButton.onClick.AddListener(delegate { EquipItem(obj); });
+            }
         }
 
 

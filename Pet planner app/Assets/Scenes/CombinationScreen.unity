@@ -1117,7 +1117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   happinessValue: 1
   hungerValue: 1
-  goldValue: 200
+  goldValue: 5
 --- !u!4 &406828350
 Transform:
   m_ObjectHideFlags: 0
